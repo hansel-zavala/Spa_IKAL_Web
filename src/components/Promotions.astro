@@ -1,0 +1,111 @@
+---
+const promotions = [
+  {
+    title: "Experiencia en Pareja",
+    badge: "Relajación Compartida",
+    price: "$1,499",
+    originalPrice: "$1,800",
+    description: "Masaje relajante corporal completo para dos personas, acompañado de aromaterapia y té relajante post-tratamiento.",
+    features: ["Masaje de 60 minutos", "Difusión de aceites esenciales", "Té herbal orgánico"],
+    whatsappText: "Hola, me interesa reservar la promoción de Experiencia en Pareja."
+  },
+  {
+    title: "Ritual Rejuvenecedor",
+    badge: "Facial + Masaje Corporal",
+    price: "$950",
+    originalPrice: "$1,200",
+    description: "La combinación perfecta: 45 minutos de masaje de piedras calientes más una limpieza facial nutritiva profunda.",
+    features: ["Masaje con piedras calientes", "Mascarilla de arcilla orgánica", "Drenaje facial"],
+    whatsappText: "Hola, me interesa reservar el Ritual Rejuvenecedor."
+  },
+  {
+    title: "Plan Rehabilitación",
+    badge: "Bono Fisioterapia 3 Sesiones",
+    price: "$1,800",
+    originalPrice: "$2,100",
+    description: "Paquete de tres sesiones de fisioterapia y restauración muscular, ideal para tratar dolores persistentes o lesiones.",
+    features: ["Valoración inicial completa", "Terapia manual personalizada", "Ejercicios terapéuticos guiados"],
+    whatsappText: "Hola, me interesa adquirir el Bono de 3 sesiones de Fisioterapia."
+  }
+];
+---
+
+<section id="promociones" class="py-24 relative" style="background-color: #2e3b32;">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 w-full">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="reveal-on-scroll font-serif text-3xl md:text-4xl text-cream font-bold tracking-tight mb-4">
+        Promociones del Mes
+      </h2>
+      <p class="reveal-on-scroll text-sm text-cream/60 font-sans leading-relaxed">
+        Descubre nuestros paquetes y rituales seleccionados con tarifas exclusivas para consentir tu cuerpo y mente.
+      </p>
+    </div>
+
+    <!-- Promotions Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      {promotions.map((promo, index) => (
+        // Outer Shell (Double Bezel)
+        <div class="reveal-on-scroll group rounded-[2.2rem] border border-cream/10 p-2 bg-cream/5 hover:bg-cream/10 hover:shadow-[0_24px_45px_-18px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-500 flex flex-col h-full">
+          <!-- Inner Core -->
+          <div class="w-full rounded-[calc(2.2rem-0.5rem)] overflow-hidden bg-cream p-8 flex flex-col flex-grow text-left relative">
+            <!-- Promo Badge -->
+            <div class="mb-4">
+              <span class="text-[9px] font-bold uppercase tracking-widest text-accent bg-accent/10 rounded px-2.5 py-1">
+                {promo.badge}
+              </span>
+            </div>
+
+            <!-- Title -->
+            <h3 class="font-serif text-xl font-bold text-primary mb-2">
+              {promo.title}
+            </h3>
+
+            <!-- Price Container -->
+            <div class="flex items-baseline gap-2.5 mb-6">
+              <span class="text-3xl font-bold font-serif text-charcoal">{promo.price}</span>
+              <span class="text-xs text-charcoal/40 line-through font-light">{promo.originalPrice}</span>
+              <span class="text-[10px] text-accent font-semibold uppercase tracking-wider ml-1">MXN</span>
+            </div>
+
+            <p class="text-xs text-charcoal/70 font-light leading-relaxed mb-6">
+              {promo.description}
+            </p>
+
+            <!-- Features List -->
+            <ul class="space-y-3 mb-8 flex-grow">
+              {promo.features.map((feature) => (
+                <li class="flex items-start gap-2.5 text-xs text-charcoal/80 font-sans">
+                  <div class="w-4 h-4 rounded-full bg-primary-tint flex items-center justify-center text-primary shrink-0 mt-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </div>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+
+            <!-- Button CTA (WhatsApp) -->
+            <a 
+              href={`https://wa.me/5211234567890?text=${encodeURIComponent(promo.whatsappText)}`}
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="group/btn flex items-center justify-center gap-3 bg-primary text-cream rounded-full pl-6 pr-1.5 py-1.5 text-xs font-semibold uppercase tracking-widest hover:bg-primary-light transition-all duration-300 shadow-sm"
+            >
+              <span>Reservar Promo</span>
+              <div class="w-8 h-8 rounded-full bg-cream/15 flex items-center justify-center group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-cream">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

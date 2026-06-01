@@ -1,0 +1,112 @@
+---
+---
+
+<!-- Hero: Full-bleed background image with cinematic overlay and strong left-aligned copy -->
+<section class="relative min-h-[100dvh] flex items-end md:items-center overflow-hidden">
+  
+  <!-- BACKGROUND: Full viewport hero image -->
+  <div class="absolute inset-0 -z-10">
+    <img 
+      src="/assets/hero_spa.webp" 
+      alt="IKAL Spa Experience"
+      class="w-full h-full object-cover object-center scale-[1.03] animate-[slowZoom_20s_ease-out_forwards]"
+    />
+    <!-- Layered gradient overlays for legibility -->
+    <div class="absolute inset-0 bg-gradient-to-r from-charcoal/80 via-charcoal/50 to-charcoal/10"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-charcoal/20"></div>
+  </div>
+
+  <!-- CONTENT OVERLAY: Left-anchored, breathing white text -->
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-10 pb-24 pt-32 md:py-0">
+    <div class="max-w-2xl">
+
+      <!-- Eyebrow pill tag -->
+      <div class="reveal-on-scroll mb-8">
+        <span class="inline-flex items-center gap-2 rounded-full border border-cream/25 bg-cream/10 backdrop-blur-sm px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.28em] text-cream/90">
+          Santuario de Bienestar
+        </span>
+      </div>
+
+      <!-- Headline: Big, bold, serif on image -->
+      <h1 class="reveal-on-scroll font-serif text-5xl md:text-6xl lg:text-7xl text-cream font-bold leading-[1.04] tracking-tight mb-6">
+        Restaura tu<br/>
+        <em class="not-italic text-accent">equilibrio</em><br/>
+        natural.
+      </h1>
+
+      <!-- Subtext -->
+      <p class="reveal-on-scroll text-base md:text-lg text-cream/80 font-sans leading-relaxed max-w-[38ch] mb-10 font-light">
+        Terapia física y relajación profunda para reconectar tu cuerpo y mente en total serenidad.
+      </p>
+
+      <!-- CTAs -->
+      <div class="reveal-on-scroll flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+        <!-- Primary CTA: solid cream on dark -->
+        <a 
+          href="https://wa.me/5211234567890?text=Hola%20IKAL%20Spa,%20me%20gustar%C3%ADa%20agendar%20una%20cita%20de%20bienestar." 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="group flex items-center justify-center gap-3 bg-cream text-charcoal rounded-full pl-6 pr-2 py-2 text-xs font-bold uppercase tracking-widest shadow-xl hover:bg-cream/90 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+        >
+          <span>Agendar Cita</span>
+          <div class="w-8 h-8 rounded-full bg-charcoal/10 flex items-center justify-center group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </div>
+        </a>
+
+        <!-- Secondary ghost CTA -->
+        <a 
+          href="#servicios" 
+          class="flex items-center justify-center border border-cream/35 hover:border-cream hover:text-cream rounded-full px-7 py-3.5 text-xs font-semibold uppercase tracking-widest text-cream/70 backdrop-blur-sm transition-all duration-300"
+        >
+          Ver Servicios
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom floating badge -->
+  <div class="absolute bottom-8 right-6 md:right-12 bg-cream/10 backdrop-blur-md border border-cream/20 rounded-2xl p-4 hidden sm:flex items-center gap-3 z-10">
+    <div class="w-9 h-9 rounded-full bg-accent/20 flex items-center justify-center text-accent">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+      </svg>
+    </div>
+    <div class="flex flex-col text-left">
+      <span class="text-[9px] uppercase tracking-wider text-cream/50 font-bold">Fisioterapeuta Certificada</span>
+      <span class="text-xs font-bold text-cream">Grecia Lamar</span>
+    </div>
+  </div>
+
+  <!-- Animated scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 hidden md:flex flex-col items-center gap-2 text-cream/40">
+    <span class="text-[9px] uppercase tracking-[0.25em]">Explorar</span>
+    <div class="w-px h-10 bg-gradient-to-b from-cream/40 to-transparent animate-[fadeDown_2s_ease-in-out_infinite]"></div>
+  </div>
+
+</section>
+
+<style>
+  @keyframes slowZoom {
+    from { transform: scale(1.03); }
+    to   { transform: scale(1.0);  }
+  }
+  @keyframes fadeDown {
+    0%, 100% { opacity: 0; transform: translateY(-8px); }
+    50%       { opacity: 1; transform: translateY(0);   }
+  }
+</style>
+
+<script>
+  const triggerHeroAnimations = () => {
+    const heroEls = document.querySelectorAll('section .reveal-on-scroll');
+    heroEls.forEach((el, i) => {
+      setTimeout(() => el.classList.add('is-visible'), i * 120);
+    });
+  };
+  document.addEventListener('DOMContentLoaded', triggerHeroAnimations);
+</script>
